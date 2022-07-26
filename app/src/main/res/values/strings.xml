@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">XPensive</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
+
+    <!-- Dashboard page -->
+    <string name="dashboard_chart_label">Chart</string>
+    <string name="dashboard_history_label">History</string>
+    <string name="dashboard_fab_description">Add Expense History</string>
+
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="dashboard_fragment_title">XPense Dashboard</string>
+
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
