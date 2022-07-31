@@ -22,6 +22,7 @@ ext {
     core_ktx_version = '1.8.0'
     lifecycle_version = '2.5.0'
     material_version = '1.6.1'
+    mp_chart_version = 'v3.1.0'
     navigation_version = '2.5.0'
     room_version = '2.4.2'
 }

@@ -1,19 +1,32 @@
 <resources>
     <string name="app_name">XPensive</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_manage">Manage Identifiers</string>
+
+    <!-- Page and tab title -->
+    <string name="dashboard_fragment_title">XPense Dashboard</string>
+    <string name="add_source_fragment_title">Add XPense Source</string>
+    <string name="manage_xpense_source_fragment_title">Manage XPense Source</string>
 
     <!-- Dashboard page -->
     <string name="dashboard_chart_label">Chart</string>
     <string name="dashboard_history_label">History</string>
     <string name="dashboard_fab_description">Add Expense History</string>
 
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="dashboard_fragment_title">XPense Dashboard</string>
+    <!-- XPense Source Page -->
+    <string name="source_name_input_hint">Source Name</string>
+    <string name="source_description_input_hint">Description (Optional)</string>
+    <string name="source_current_balance_input_hint">Current Balance (Optional)</string>
 
+    <string name="save">Save</string>
+    <string name="update">Update</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string-array name="expense_types">
+        <item>Personal</item>
+        <item>Business</item>
+        <item>Grocery</item>
+        <item>Daily Needs</item>
+        <item>Other</item>
+    </string-array>
 </resources>
