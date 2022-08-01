@@ -2,4 +2,6 @@
 <resources>
     <integer name="source_name_max_length">20</integer>
     <integer name="source_description_max_length">40</integer>
+
+    <integer name="expense_remarks_max_length">15</integer>
 </resources>

@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
                 android:maxLength="@integer/source_name_max_length"
-                android:paddingVertical="@dimen/rounded_rectangle_vertical_padding"
+                android:paddingVertical="@dimen/default_padding"
                 android:text="@={viewModel.sourceName}"
                 android:textSize="@dimen/add_source_input_text_size"
                 tools:text="Halo BCA" />
@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:paddingVertical="@dimen/rounded_rectangle_vertical_padding"
+                android:paddingVertical="@dimen/default_padding"
                 android:text="@={viewModel.currentBalance}"
                 android:textSize="@dimen/add_source_input_text_size" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +81,7 @@
                 android:gravity="top"
                 android:inputType="textNoSuggestions"
                 android:maxLength="@integer/source_description_max_length"
-                android:paddingVertical="@dimen/rounded_rectangle_vertical_padding"
+                android:paddingVertical="@dimen/default_padding"
                 android:text="@={viewModel.description}"
                 android:textSize="@dimen/add_source_input_text_size"
                 tools:text="Bank Agrikultular Rakyat Indonesia" />

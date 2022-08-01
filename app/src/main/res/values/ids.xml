@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="xpense_type_personal" type="id" />
+    <item name="xpense_type_business" type="id" />
+    <item name="xpense_type_grocery" type="id" />
+    <item name="xpense_type_daily" type="id" />
+    <item name="xpense_type_debt" type="id" />
+    <item name="xpense_type_other" type="id" />
+</resources>

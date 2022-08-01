@@ -4,12 +4,13 @@
         <!-- Primary app color. -->
         <item name="colorPrimary">@color/teal_c7</item>
         <item name="colorPrimaryVariant">@color/teal_c7</item>
-        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorOnPrimary">@color/gray_54</item>
         <!-- Secondary app color. -->
         <item name="colorSecondary">@color/purple_200</item>
         <item name="colorSecondaryVariant">@color/purple_200</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@android:color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Default font family -->
         <item name="android:fontFamily">@font/mulish</item>
         <item name="android:textColor">@color/gray_54</item>
@@ -20,7 +21,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.XPensive.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.XPensive.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Theme.XPensive.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 

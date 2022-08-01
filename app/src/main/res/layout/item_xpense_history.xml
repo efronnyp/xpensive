@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.efronnypardede.xpensive.data.entity.XpenseHistoryDatabaseView" />
+
+        <import type="java.text.DateFormat" />
+
+        <import type="java.text.NumberFormat" />
+
+        <import type="com.efronnypardede.xpensive.data.source.local.XpenseTypeMapper" />
+
+        <variable
+            name="data"
+            type="XpenseHistoryDatabaseView" />
+
+        <variable
+            name="dateFormatter"
+            type="DateFormat" />
+
+        <variable
+            name="numberFormatter"
+            type="NumberFormat" />
+
+        <variable
+            name="xpenseTypeMapper"
+            type="XpenseTypeMapper" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding">
+
+        <TextView
+            android:id="@+id/textview_xpense_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/medium_padding"
+            android:text="@{dateFormatter.format(data.date)}"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/imageview_type_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="28 September 2022" />
+
+        <ImageView
+            android:id="@+id/imageview_type_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/type_icon_circle_background"
+            android:contentDescription="@string/history_type_icon_description"
+            android:src="@{xpenseTypeMapper.fromIdToIcon(data.typeId)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_xpense_date"
+            tools:src="@drawable/ic_diamond_linear_fill" />
+
+        <TextView
+            android:id="@+id/textview_xpense_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_padding"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{data.description}"
+            android:textSize="@dimen/caption_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textview_xpense_source"
+            app:layout_constraintEnd_toStartOf="@id/textview_xpense_amount"
+            app:layout_constraintStart_toEndOf="@id/imageview_type_icon"
+            app:layout_constraintTop_toBottomOf="@id/textview_xpense_date"
+            tools:text="Shopping without control" />
+
+        <TextView
+            android:id="@+id/textview_xpense_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@{numberFormatter.format(data.amount)}"
+            android:textColor="@color/orange_5c"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_xpense_date"
+            app:layout_constraintWidth_percent=".4"
+            tools:text="53.000.000" />
+
+        <TextView
+            android:id="@+id/textview_xpense_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
+            android:ellipsize="end"
+            android:text="@{data.source}"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toStartOf="@id/textview_xpense_description"
+            app:layout_constraintTop_toBottomOf="@id/textview_xpense_description"
+            tools:text="Wife's Wallet" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

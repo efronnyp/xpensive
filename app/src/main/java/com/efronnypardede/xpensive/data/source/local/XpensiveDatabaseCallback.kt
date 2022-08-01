@@ -24,9 +24,13 @@ class XpensiveDatabaseCallback @Inject constructor(
         }
 
         db.apply {
-            beginTransaction()
-            insert(XpenseSource.TABLE_NAME, SQLiteDatabase.CONFLICT_REPLACE, contentValues)
-            endTransaction()
+            try {
+                beginTransaction()
+                insert(XpenseSource.TABLE_NAME, SQLiteDatabase.CONFLICT_REPLACE, contentValues)
+                setTransactionSuccessful()
+            } finally {
+                endTransaction()
+            }
         }
     }
 }

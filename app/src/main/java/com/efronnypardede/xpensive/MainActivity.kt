@@ -37,6 +37,10 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         setupActionBarWithNavController(navController)
         navController.addOnDestinationChangedListener(this)
+
+        viewBinding.fab.setOnClickListener {
+            navController.navigate(R.id.action_dashboard_to_add_history)
+        }
     }
 
     override fun onDestroy() {

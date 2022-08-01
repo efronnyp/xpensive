@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.efronnypardede.xpensive.dashboard.DashboardViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="DashboardViewModel" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -8,7 +20,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp">
 
             <TextView
                 android:id="@+id/textview_chart_header"
@@ -45,9 +58,13 @@
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textview_history_header" />
+                app:layout_constraintTop_toBottomOf="@id/textview_history_header"
+                app:list="@{viewModel.xpenseHistoryList}"
+                tools:listitem="@layout/item_xpense_history" />
 
-            <include layout="@layout/content_no_expense_history" />
+            <include
+                layout="@layout/content_no_expense_history"
+                app:isVisible="@{viewModel.isNoHistory}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

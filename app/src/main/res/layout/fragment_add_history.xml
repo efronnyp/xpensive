@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.efronnypardede.xpensive.dashboard.AddHistoryViewModel" />
+
+        <variable
+            name="viewModel"
+            type="AddHistoryViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/default_padding">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputlayout_xpense_amount"
+            style="@style/DefaultTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/history_amount_input_hint"
+            app:layout_constraintBottom_toTopOf="@id/inputlayout_xpense_remarks"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_xpense_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:paddingVertical="@dimen/default_padding"
+                android:text="@={viewModel.xpenseAmount}"
+                android:textSize="@dimen/add_history_input_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputlayout_xpense_remarks"
+            style="@style/DefaultTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:hint="@string/history_remarks_input_hint"
+            app:counterMaxLength="@integer/expense_remarks_max_length"
+            app:layout_constraintBottom_toTopOf="@id/textview_xpense_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputlayout_xpense_amount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittext_xpense_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLength="@integer/expense_remarks_max_length"
+                android:paddingVertical="@dimen/default_padding"
+                android:text="@={viewModel.xpenseRemarks}"
+                android:textSize="@dimen/add_history_input_text_size" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textview_xpense_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:background="@drawable/rounded_rectangle_background"
+            android:onClick="@{() -> viewModel.showDatePicker()}"
+            android:paddingHorizontal="@dimen/medium_padding"
+            android:paddingVertical="@dimen/default_padding"
+            android:text="@{viewModel.formattedXpenseDate}"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            app:drawableEndCompat="@drawable/ic_calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputlayout_xpense_remarks"
+            tools:text="20 September 2022" />
+
+        <Spinner
+            android:id="@+id/spinner_xpense_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:onItemSelected="@{(a, v, p, id) -> viewModel.setSelectedSourceId(id) }"
+            app:layout_constraintBottom_toTopOf="@id/spinner_xpense_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_xpense_date"
+            app:list="@{viewModel.xpenseSourceList}"
+            tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+        <Spinner
+            android:id="@+id/spinner_xpense_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_padding"
+            android:onItemSelected="@{(a, v, p, id) -> viewModel.setSelectedCategoryId(id)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner_xpense_source"
+            tools:listitem="@android:layout/simple_spinner_dropdown_item" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="@{viewModel.isFormValid}"
+            android:onClick="@{() -> viewModel.save()}"
+            android:text="@string/save"
+            android:textSize="@dimen/default_button_text_size"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/rounded_rectangle_radius"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_min="@dimen/default_button_min_height"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

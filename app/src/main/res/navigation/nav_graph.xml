@@ -7,12 +7,16 @@
 
     <fragment
         android:id="@+id/fragment_dashboard"
-        android:name="com.efronnypardede.xpensive.DashboardFragment"
+        android:name="com.efronnypardede.xpensive.dashboard.DashboardFragment"
         android:label="@string/dashboard_fragment_title"
         tools:layout="@layout/fragment_dashboard">
 
-        <action android:id="@+id/action_dashboard_to_manage_source"
+        <action
+            android:id="@+id/action_dashboard_to_manage_source"
             app:destination="@id/fragment_manage_source" />
+        <action
+            android:id="@+id/action_dashboard_to_add_history"
+            app:destination="@id/fragment_add_history" />
 
     </fragment>
 
@@ -22,7 +26,8 @@
         android:label="@string/manage_source_fragment_title"
         tools:layout="@layout/fragment_manage_source">
 
-        <action android:id="@+id/action_manage_to_add_source"
+        <action
+            android:id="@+id/action_manage_to_add_source"
             app:destination="@id/fragment_add_source" />
 
     </fragment>
@@ -32,5 +37,11 @@
         android:name="com.efronnypardede.xpensive.manage.AddSourceFragment"
         android:label="@string/add_source_fragment_title"
         tools:layout="@layout/fragment_add_source" />
+
+    <fragment
+        android:id="@+id/fragment_add_history"
+        android:name="com.efronnypardede.xpensive.dashboard.AddHistoryFragment"
+        android:label="@string/add_history_fragment_title"
+        tools:layout="@layout/fragment_add_history" />
 
 </navigation>

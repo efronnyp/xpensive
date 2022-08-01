@@ -1,7 +1,7 @@
 package com.efronnypardede.xpensive.data.source.local
 
 import androidx.room.TypeConverter
-import java.util.Date
+import java.util.*
 
 object DatabaseDataConverter {
     @TypeConverter
