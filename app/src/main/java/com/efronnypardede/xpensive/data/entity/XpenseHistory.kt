@@ -1,9 +1,7 @@
 package com.efronnypardede.xpensive.data.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
+import java.util.*
 
 @Entity(
     tableName = "xpense_histories",
@@ -13,9 +11,14 @@ import androidx.room.PrimaryKey
             parentColumns = ["id"],
             childColumns = ["source_id"],
             onDelete = ForeignKey.RESTRICT,
-            onUpdate = ForeignKey.CASCADE
-        )
-    ]
+        ),
+    ],
+    indices = [
+        Index(
+            value = ["date"],
+            orders = [Index.Order.DESC],
+        ),
+    ],
 )
 data class XpenseHistory(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
@@ -23,4 +26,5 @@ data class XpenseHistory(
     @ColumnInfo(name = "source_id", index = true) val sourceId: Long,
     @ColumnInfo(name = "type_id", index = true) val typeId: Int,
     @ColumnInfo(name = "description") val description: String,
+    @ColumnInfo(name = "date") val date: Date,
 )

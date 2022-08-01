@@ -11,5 +11,26 @@
         android:label="@string/dashboard_fragment_title"
         tools:layout="@layout/fragment_dashboard">
 
+        <action android:id="@+id/action_dashboard_to_manage_source"
+            app:destination="@id/fragment_manage_source" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_manage_source"
+        android:name="com.efronnypardede.xpensive.manage.ManageSourceFragment"
+        android:label="@string/manage_source_fragment_title"
+        tools:layout="@layout/fragment_manage_source">
+
+        <action android:id="@+id/action_manage_to_add_source"
+            app:destination="@id/fragment_add_source" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add_source"
+        android:name="com.efronnypardede.xpensive.manage.AddSourceFragment"
+        android:label="@string/add_source_fragment_title"
+        tools:layout="@layout/fragment_add_source" />
+
 </navigation>

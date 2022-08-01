@@ -1,0 +1,156 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0231b07edbb795c47c961ec7a20c3405",
+    "entities": [
+      {
+        "tableName": "xpense_histories",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `amount` REAL NOT NULL, `source_id` INTEGER NOT NULL, `type_id` INTEGER NOT NULL, `description` TEXT NOT NULL, `date` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `xpense_sources`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceId",
+            "columnName": "source_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "typeId",
+            "columnName": "type_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_xpense_histories_date",
+            "unique": false,
+            "columnNames": [
+              "date"
+            ],
+            "orders": [
+              "DESC"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_xpense_histories_date` ON `${TABLE_NAME}` (`date` DESC)"
+          },
+          {
+            "name": "index_xpense_histories_source_id",
+            "unique": false,
+            "columnNames": [
+              "source_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_xpense_histories_source_id` ON `${TABLE_NAME}` (`source_id`)"
+          },
+          {
+            "name": "index_xpense_histories_type_id",
+            "unique": false,
+            "columnNames": [
+              "type_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_xpense_histories_type_id` ON `${TABLE_NAME}` (`type_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "xpense_sources",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "source_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "xpense_sources",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `description` TEXT NOT NULL, `balance` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "balance",
+            "columnName": "balance",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_xpense_sources_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [
+              "ASC"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_xpense_sources_name` ON `${TABLE_NAME}` (`name` ASC)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0231b07edbb795c47c961ec7a20c3405')"
+    ]
+  }
+}

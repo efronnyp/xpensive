@@ -3,8 +3,8 @@
     <style name="Theme.XPensive" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary app color. -->
         <item name="colorPrimary">@color/teal_c7</item>
-        <item name="colorPrimaryVariant">@color/teal_c3</item>
-        <item name="colorOnPrimary">@color/blue_bd</item>
+        <item name="colorPrimaryVariant">@color/teal_c7</item>
+        <item name="colorOnPrimary">@android:color/white</item>
         <!-- Secondary app color. -->
         <item name="colorSecondary">@color/purple_200</item>
         <item name="colorSecondaryVariant">@color/purple_200</item>
@@ -12,6 +12,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Default font family -->
         <item name="android:fontFamily">@font/mulish</item>
+        <item name="android:textColor">@color/gray_54</item>
     </style>
 
     <style name="Theme.XPensive.NoActionBar">

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.efronnypardede.xpensive.data.entity.XpenseSource" />
+
+        <import type="java.text.NumberFormat" />
+
+        <variable
+            name="data"
+            type="XpenseSource" />
+
+        <variable
+            name="numberFormatter"
+            type="NumberFormat" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding">
+
+        <TextView
+            android:id="@+id/textview_source_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.name}"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5"
+            tools:text="Halo BCA" />
+
+        <TextView
+            android:id="@+id/textview_source_balance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/green"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5"
+            android:text="@{data.balance != null ? numberFormatter.format(data.balance) : null}"
+            tools:text="50.000.000.000.000" />
+
+        <TextView
+            android:id="@+id/textview_source_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{data.description}"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_source_name"
+            tools:text="Bank Agricultular Rakyat Indonesia" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

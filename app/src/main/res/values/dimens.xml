@@ -1,9 +1,16 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="default_padding">16dp</dimen>
+    <dimen name="extra_small_padding">4dp</dimen>
     <dimen name="small_padding">8dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="big_padding">24dp</dimen>
     <dimen name="default_button_text_size">16sp</dimen>
     <dimen name="default_button_min_height">60dp</dimen>
+    <dimen name="extra_small_text_size">10sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="caption_text_size">14sp</dimen>
+    <dimen name="title_text_size">16sp</dimen>
+    <dimen name="header_text_size">18sp</dimen>
 
     <dimen name="rounded_rectangle_vertical_padding">16dp</dimen>
     <dimen name="rounded_rectangle_horizontal_padding">8dp</dimen>

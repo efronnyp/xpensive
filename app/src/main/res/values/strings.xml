@@ -5,22 +5,31 @@
     <!-- Page and tab title -->
     <string name="dashboard_fragment_title">XPense Dashboard</string>
     <string name="add_source_fragment_title">Add XPense Source</string>
-    <string name="manage_xpense_source_fragment_title">Manage XPense Source</string>
+    <string name="manage_source_fragment_title">Manage XPense Source</string>
 
     <!-- Dashboard page -->
     <string name="dashboard_chart_label">Chart</string>
     <string name="dashboard_history_label">History</string>
     <string name="dashboard_fab_description">Add Expense History</string>
 
-    <!-- XPense Source Page -->
+    <!-- XPense Source page -->
     <string name="source_name_input_hint">Source Name</string>
-    <string name="source_description_input_hint">Description (Optional)</string>
+    <string name="source_description_input_hint">Description</string>
     <string name="source_current_balance_input_hint">Current Balance (Optional)</string>
+
+    <!-- XPense History page -->
+    <string name="history_empty_title">We\'re good!</string>
+    <string name="history_empty_message">
+        No expense history so far, but should that happened, we will present it here.
+    </string>
+    <string name="history_empty_image_description">Money Vault Illustration</string>
 
     <string name="save">Save</string>
     <string name="update">Update</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="add_new">Add New</string>
+    <string name="data_added">Data Added</string>
 
     <string-array name="expense_types">
         <item>Personal</item>
@@ -29,4 +38,7 @@
         <item>Daily Needs</item>
         <item>Other</item>
     </string-array>
+
+    <string name="default_expense_source">Wallet</string>
+    <string name="default_expense_source_description">Default expense source</string>
 </resources>
