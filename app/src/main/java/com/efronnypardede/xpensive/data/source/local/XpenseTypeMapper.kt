@@ -1,6 +1,7 @@
 package com.efronnypardede.xpensive.data.source.local
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.DrawableRes
 import com.efronnypardede.xpensive.R
 import dagger.hilt.android.qualifiers.ActivityContext
@@ -29,6 +30,7 @@ class XpenseTypeMapper @Inject constructor(
 
     @DrawableRes
     fun fromIdToIcon(id: Int): Int {
+        Log.d("IdToIcon", "Solving for id: $id")
         return when (id) {
             R.id.xpense_type_personal -> R.drawable.ic_diamond_linear_fill
             R.id.xpense_type_business -> R.drawable.ic_chart_linear_fill

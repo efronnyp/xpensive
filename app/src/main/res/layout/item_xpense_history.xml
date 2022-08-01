@@ -24,10 +24,6 @@
         <variable
             name="numberFormatter"
             type="NumberFormat" />
-
-        <variable
-            name="xpenseTypeMapper"
-            type="XpenseTypeMapper" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -56,7 +52,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/type_icon_circle_background"
             android:contentDescription="@string/history_type_icon_description"
-            android:src="@{xpenseTypeMapper.fromIdToIcon(data.typeId)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_xpense_date"
             tools:src="@drawable/ic_diamond_linear_fill" />

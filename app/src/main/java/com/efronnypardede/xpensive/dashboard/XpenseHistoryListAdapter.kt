@@ -38,6 +38,9 @@ class XpenseHistoryListAdapter @Inject constructor(
                 this.data = data
 
                 textviewXpenseDate.isVisible = isHeader
+                imageviewTypeIcon.setImageResource(
+                    this@ViewHolder.xpenseTypeMapper.fromIdToIcon(data.typeId)
+                )
             }
         }
 
